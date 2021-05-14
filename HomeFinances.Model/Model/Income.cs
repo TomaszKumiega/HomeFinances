@@ -14,7 +14,7 @@ namespace HomeFinances.Model.Model
             get => _value;
             set
             {
-                if (value < 0) throw new ArgumentException("Value cannot be negative");
+                if (value <= 0) throw new ArgumentException("Value cannot be negative or 0");
                 _value = value;
             }
         }
