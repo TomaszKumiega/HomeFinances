@@ -24,7 +24,7 @@ namespace HomeFinances.Model.Model
             get => _category;
             set
             {
-                if (value.Type != CategoryType.IncomeCategory) throw new ArgumentException("Category type must be IncomCategory");
+                if (value.Type != CategoryType.IncomeCategory) throw new ArgumentException("Category type must be IncomeCategory");
                 _category = value;
             }
         }
