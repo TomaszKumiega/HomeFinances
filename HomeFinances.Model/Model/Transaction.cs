@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HomeFinances.Model
+namespace HomeFinances.Model.Model
 {
-    public abstract class Transaction
+    public abstract class Transaction : IDatabaseEntity
     {
         public virtual Guid Id { get; set; }
         public virtual string Name { get; set; }

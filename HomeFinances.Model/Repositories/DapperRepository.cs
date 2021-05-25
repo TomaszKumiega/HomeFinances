@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using HomeFinances.Model.Model;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HomeFinances.Model.Repositories
 {
-    public class DapperRepository<T> : IRepository<T>
+    public class DapperRepository<T> : IRepository<T> where T : IDatabaseEntity
     {
         protected string _tableName;
 
