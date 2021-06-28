@@ -3864,16 +3864,16 @@ namespace HomeFinances.GUI
 			public const int navigation_header_container = 2131230874;
 			
 			// aapt resource value: 0x7F080095
-			public const int nav_camera = 2131230869;
+			public const int nav_history = 2131230869;
 			
 			// aapt resource value: 0x7F080096
-			public const int nav_gallery = 2131230870;
+			public const int nav_home = 2131230870;
 			
 			// aapt resource value: 0x7F080097
-			public const int nav_manage = 2131230871;
+			public const int nav_settings = 2131230871;
 			
 			// aapt resource value: 0x7F080098
-			public const int nav_slideshow = 2131230872;
+			public const int nav_statistics = 2131230872;
 			
 			// aapt resource value: 0x7F080099
 			public const int nav_view = 2131230873;
@@ -4668,34 +4668,46 @@ namespace HomeFinances.GUI
 			public const int hide_bottom_view_on_scroll_behavior = 2131623975;
 			
 			// aapt resource value: 0x7F0E0028
-			public const int mtrl_chip_close_icon_content_description = 2131623976;
+			public const int history = 2131623976;
 			
 			// aapt resource value: 0x7F0E0029
-			public const int navigation_drawer_close = 2131623977;
+			public const int home = 2131623977;
 			
 			// aapt resource value: 0x7F0E002A
-			public const int navigation_drawer_open = 2131623978;
+			public const int mtrl_chip_close_icon_content_description = 2131623978;
 			
 			// aapt resource value: 0x7F0E002B
-			public const int password_toggle_content_description = 2131623979;
+			public const int navigation_drawer_close = 2131623979;
 			
 			// aapt resource value: 0x7F0E002C
-			public const int path_password_eye = 2131623980;
+			public const int navigation_drawer_open = 2131623980;
 			
 			// aapt resource value: 0x7F0E002D
-			public const int path_password_eye_mask_strike_through = 2131623981;
+			public const int password_toggle_content_description = 2131623981;
 			
 			// aapt resource value: 0x7F0E002E
-			public const int path_password_eye_mask_visible = 2131623982;
+			public const int path_password_eye = 2131623982;
 			
 			// aapt resource value: 0x7F0E002F
-			public const int path_password_strike_through = 2131623983;
+			public const int path_password_eye_mask_strike_through = 2131623983;
 			
 			// aapt resource value: 0x7F0E0030
-			public const int search_menu_title = 2131623984;
+			public const int path_password_eye_mask_visible = 2131623984;
 			
 			// aapt resource value: 0x7F0E0031
-			public const int status_bar_notification_info_overflow = 2131623985;
+			public const int path_password_strike_through = 2131623985;
+			
+			// aapt resource value: 0x7F0E0032
+			public const int search_menu_title = 2131623986;
+			
+			// aapt resource value: 0x7F0E0033
+			public const int settings = 2131623987;
+			
+			// aapt resource value: 0x7F0E0034
+			public const int statistics = 2131623988;
+			
+			// aapt resource value: 0x7F0E0035
+			public const int status_bar_notification_info_overflow = 2131623989;
 			
 			static String()
 			{
