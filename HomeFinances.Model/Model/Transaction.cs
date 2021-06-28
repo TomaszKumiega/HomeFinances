@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeFinances.Model.Model
 {
-    public abstract class Transaction : IDatabaseEntity
+    public abstract class Transaction
     {
         public virtual Guid Id { get; set; }
         public virtual Guid AccountId { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeFinances.Model.Model
 {
-    public class Account : IDatabaseEntity
+    public class Account
     {
         public Guid Id { get; set; }
         public string Currency { get; set; }

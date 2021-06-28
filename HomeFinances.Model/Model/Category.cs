@@ -12,7 +12,7 @@ namespace HomeFinances.Model.Model
         ExpenseCategory
     }
 
-    public class Category : IDatabaseEntity
+    public class Category
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
