@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeFinances.ViewModel.ViewModels;assembly=HomeFinances.ViewModel" x:DataType="local:AddAccountViewModel"
              x:Class="HomeFinances.XamarinForms.Views.AddAccountPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="Name"
+                   FontSize="Large"
                 HorizontalOptions="CenterAndExpand" />
+            <Entry Text="{Binding Name}"
+                   Margin="15,0,15,0"
+                   HorizontalOptions="FillAndExpand"/>
+            <Label Text="Balance"
+                   FontSize="Large"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Text="{Binding Balance}"
+                   Margin="15,0,15,0"
+                   HorizontalOptions="FillAndExpand"/>
+            <Picker Title="Currency"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    SelectedItem="{Binding Currency}">
+                <Picker.Items>
+                    <x:String>PLN</x:String>
+                    <x:String>USD</x:String>
+                    <x:String>EUR</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Add"
+                    Command="{Binding AddAccountCommand}"
+                    Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
