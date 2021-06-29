@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using HomeFinances.ViewModel.Commands;
 
 namespace HomeFinances.ViewModel.ViewModels
 {
@@ -17,6 +19,7 @@ namespace HomeFinances.ViewModel.ViewModels
         private IDatabaseContext Context { get; }
         private DataChangedNotification DataChangedNotification { get; }
 
+        public ICommand RemoveAccountCommand { get; }
         public string Cash { get; private set; }
         public List<Account> Accounts { get; private set; }
         public Account SelectedAccount
@@ -31,10 +34,11 @@ namespace HomeFinances.ViewModel.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public HomeViewModel(IDatabaseContext context, DataChangedNotification dataChangedNotification)
+        public HomeViewModel(IDatabaseContext context, DataChangedNotification dataChangedNotification, ICommandFactory commandFactory)
         {
             Context = context;
             DataChangedNotification = dataChangedNotification;
+            RemoveAccountCommand = commandFactory.GetRemoveAccountCommand(this);
             DataChangedNotification.DataChanged += OnDataChanged;
             LoadData();
         }
@@ -75,6 +79,7 @@ namespace HomeFinances.ViewModel.ViewModels
             if (SelectedAccount == null) return;
 
             Cash = SelectedAccount.Balance.ToString() + " " + SelectedAccount.Currency;
+            RaisePropertyChanged("SelectedAccount");
             RaisePropertyChanged("Cash");
         }
 
@@ -83,6 +88,14 @@ namespace HomeFinances.ViewModel.ViewModels
             if (SelectedAccount == null) return;
 
             SelectedAccount.Balance = newBalance;
+            Context.SaveChanges();
+        }
+
+        public void RemoveSelectedAccount()
+        {
+            if (SelectedAccount == null) return;
+
+            Context.Accounts.Remove(SelectedAccount);
             Context.SaveChanges();
         }
     }
