@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HomeFinances.Model.Events
+namespace HomeFinances.ViewModel.Events
 {
     public class DataChangedEventArgs
     {

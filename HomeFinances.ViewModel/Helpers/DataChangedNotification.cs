@@ -1,4 +1,4 @@
-﻿using HomeFinances.Model.Events;
+﻿using HomeFinances.ViewModel.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
