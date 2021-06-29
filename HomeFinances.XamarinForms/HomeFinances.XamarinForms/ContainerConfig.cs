@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using HomeFinances.Model.Model;
 using HomeFinances.ViewModel.Commands;
+using HomeFinances.ViewModel.Helpers;
 using HomeFinances.ViewModel.ViewModels;
 using HomeFinances.XamarinForms.Views;
 using System;
@@ -24,6 +25,7 @@ namespace HomeFinances.XamarinForms
             builder.RegisterType<HomePage>().AsSelf();
             builder.RegisterType<AddAccountPage>().AsSelf();
             builder.RegisterType<Configuration>().As<IConfiguration>();
+            builder.RegisterType<DataChangedNotification>().AsSelf().SingleInstance();
 
             return builder.Build();
         }
