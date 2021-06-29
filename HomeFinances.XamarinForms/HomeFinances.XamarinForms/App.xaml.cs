@@ -1,5 +1,4 @@
-﻿using HomeFinances.XamarinForms.Services;
-using HomeFinances.XamarinForms.Views;
+﻿using HomeFinances.XamarinForms.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +12,6 @@ namespace HomeFinances.XamarinForms
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
