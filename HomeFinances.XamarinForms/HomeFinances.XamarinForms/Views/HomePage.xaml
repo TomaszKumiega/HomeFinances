@@ -27,6 +27,14 @@
                     ItemsSource="{Binding Accounts}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding SelectedAccount}"/>
+
+            <Label x:Name="BalanceLabel"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Title"
+                   Text="{Binding Cash}"/>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
