@@ -7,9 +7,10 @@ namespace HomeFinances.XamarinForms
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
-        public AppShell()
+        public AppShell(HomePage homePage)
         {
             InitializeComponent();
+            HomeShellContent.Content = homePage;
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
