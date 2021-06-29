@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using HomeFinances.Model.Model;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace HomeFinances.ViewModel.ViewModels
 {
     public interface IHomeViewModel
     {
-        List<string> AccountNames { get; }
+        List<Account> Accounts { get; }
         string Cash { get; }
-        int? SelectedAccountIndex { get; set; }
+        Account SelectedAccount { get; set; }
 
         event PropertyChangedEventHandler PropertyChanged;
 

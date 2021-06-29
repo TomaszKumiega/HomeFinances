@@ -11,19 +11,18 @@ namespace HomeFinances.ViewModel.ViewModels
     public class HomeViewModel : INotifyPropertyChanged, IHomeViewModel
     {
 
-        private int? selectedAccountIndex;
+        private Account selectedAccount;
         private IDatabaseContext Context { get; }
 
         public string Cash { get; private set; }
-        public List<string> AccountNames { get; private set; }
-        public int? SelectedAccountIndex
+        public List<Account> Accounts { get; private set; }
+        public Account SelectedAccount
         {
-            get => selectedAccountIndex;
+            get => selectedAccount;
             set
             {
-                if (selectedAccountIndex >= Context.Accounts.ToList().Count) throw new ArgumentOutOfRangeException("Account index");
-                selectedAccountIndex = value;
-                OnPropertyChanged("SelectedAccountIndex");
+                selectedAccount = value;
+                OnSelectedAccountChanged();
             }
         }
 
@@ -33,9 +32,10 @@ namespace HomeFinances.ViewModel.ViewModels
         {
             Context = context;
             Context.DataChanged += OnDataChanged;
+            LoadData();
         }
 
-        private void OnPropertyChanged(string propertyName)
+        private void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -49,27 +49,34 @@ namespace HomeFinances.ViewModel.ViewModels
         {
             if (!Context.Accounts.Any())
             {
-                SelectedAccountIndex = null;
+                SelectedAccount = null;
                 Cash = "0";
-                AccountNames = new List<string>();
+                Accounts = new List<Account>();
             }
             else
             {
-                AccountNames = Context.Accounts.Select(x => x.Name).ToList();
-                var accounts = Context.Accounts.ToList();
-                SelectedAccountIndex = 0;
-                Cash = accounts[0].Balance.ToString() + " " + accounts[0].Currency;
+                Accounts = Context.Accounts.ToList();
+                SelectedAccount = Accounts[0];
+                Cash = Accounts[0].Balance.ToString() + " " + Accounts[0].Currency;
             }
+
+            RaisePropertyChanged("Cash");
+            RaisePropertyChanged("Accounts");
+        }
+
+        private void OnSelectedAccountChanged()
+        {
+            if (SelectedAccount == null) return;
+
+            Cash = SelectedAccount.Balance.ToString() + " " + SelectedAccount.Currency;
         }
 
         public void AdjustBalance(double newBalance)
         {
-            if (!SelectedAccountIndex.HasValue) return;
-            if (Context.Accounts.ToList().Count > SelectedAccountIndex.Value)
-            {
-                Context.Accounts.ElementAt(SelectedAccountIndex.Value).Balance = newBalance;
-                Context.SaveChanges();
-            }
+            if (SelectedAccount == null) return;
+
+            SelectedAccount.Balance = newBalance;
+            Context.SaveChanges();
         }
     }
 }
