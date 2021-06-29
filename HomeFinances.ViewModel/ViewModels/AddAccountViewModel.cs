@@ -1,5 +1,6 @@
 ﻿using HomeFinances.Model.Model;
 using HomeFinances.ViewModel.Commands;
+using HomeFinances.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace HomeFinances.ViewModel.ViewModels
         private string name;
         private string balance;
 
+        public DataChangedNotification DataChangedNotification { get; }
 
         public string Currency 
         { 
@@ -47,9 +49,10 @@ namespace HomeFinances.ViewModel.ViewModels
 
         public ICommand AddAccountCommand { get; }
 
-        public AddAccountViewModel(IDatabaseContext context, ICommandFactory commandFactory)
+        public AddAccountViewModel(IDatabaseContext context, ICommandFactory commandFactory, DataChangedNotification dataChangedNotification)
         {
             Context = context;
+            DataChangedNotification = dataChangedNotification;
             AddAccountCommand = commandFactory.GetAddAccountCommand(this);
         }
 
@@ -65,6 +68,7 @@ namespace HomeFinances.ViewModel.ViewModels
             var account = new Account(Guid.NewGuid(), Currency, Name, double.Parse(Balance));
             Context.Accounts.Add(account);
             Context.SaveChanges();
+            DataChangedNotification.RaiseDataChanged("Accounts");
         }
     }
 }
