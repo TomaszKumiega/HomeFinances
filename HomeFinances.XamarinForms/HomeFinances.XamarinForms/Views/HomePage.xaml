@@ -40,7 +40,13 @@
                     Text="Adjust Balance"
                     Grid.Row="2"
                     Grid.Column="0"
-                    Clicked=""/>
+                    Clicked="AdjustBalanceButton_Clicked"/>
+
+            <Button x:Name="RemoveAccountButton"
+                    Text="Remove Account"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="MediumVioletRed"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

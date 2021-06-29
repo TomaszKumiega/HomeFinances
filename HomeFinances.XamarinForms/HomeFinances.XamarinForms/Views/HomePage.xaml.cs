@@ -27,5 +27,10 @@ namespace HomeFinances.XamarinForms.Views
         {
             await Navigation.PushAsync(AddAccountPage);
         }
+
+        private void AdjustBalanceButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
