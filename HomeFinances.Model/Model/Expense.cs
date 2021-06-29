@@ -9,6 +9,22 @@ namespace HomeFinances.Model.Model
         private float _value;
         private Category _category;
 
+        public Expense()
+        {
+
+        }
+
+        public Expense(Guid id, Guid accountId, string desctription, Category category, DateTime dateTime, float value)
+        {
+            Id = id;
+            AccountId = accountId;
+            Description = desctription;
+            Category = category;
+            Date = dateTime;
+            Value = value;
+        }
+
+
         public override float Value
         {
             get => _value;
@@ -24,7 +40,7 @@ namespace HomeFinances.Model.Model
             get => _category;
             set
             {
-                if (value.Type != CategoryType.ExpenseCategory) throw new ArgumentException("Category type must be ExpenseCategory");
+                if (value.Type != TransactionType.Income) throw new ArgumentException("Category type must be ExpenseCategory");
                 _category = value;
             }
         }
