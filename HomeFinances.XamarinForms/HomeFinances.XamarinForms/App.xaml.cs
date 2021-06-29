@@ -1,4 +1,5 @@
 ﻿using HomeFinances.Model.Model;
+using HomeFinances.ViewModel.Commands;
 using HomeFinances.ViewModel.ViewModels;
 using HomeFinances.XamarinForms.Views;
 using System;
@@ -20,7 +21,11 @@ namespace HomeFinances.XamarinForms
         private void RegisterTypes()
         {
             DependencyService.Register<IDatabaseContext, DatabaseContext>();
+            DependencyService.Register<ICommandFactory, CommandFactory>();
             DependencyService.Register<IHomeViewModel, HomeViewModel>();
+            DependencyService.Register<IAddAccountViewModel, AddAccountViewModel>();
+            DependencyService.Register<IAddTransactionViewModel, AddTransactionViewModel>();
+            DependencyService.Register<IRecordsViewModel, RecordsViewModel>();
         }
 
         protected override void OnStart()
