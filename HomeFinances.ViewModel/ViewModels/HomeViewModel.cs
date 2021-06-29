@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace HomeFinances.ViewModel.ViewModels
 {
-    public class HomeViewModel : INotifyPropertyChanged
+    public class HomeViewModel : INotifyPropertyChanged, IHomeViewModel
     {
 
         private int? selectedAccountIndex;
         private IDatabaseContext Context { get; }
-        
+
         public string Cash { get; private set; }
         public List<string> AccountNames { get; private set; }
-        public int? SelectedAccountIndex 
-        { 
-            get => selectedAccountIndex; 
+        public int? SelectedAccountIndex
+        {
+            get => selectedAccountIndex;
             set
             {
                 if (selectedAccountIndex >= Context.Accounts.ToList().Count) throw new ArgumentOutOfRangeException("Account index");
@@ -47,7 +47,7 @@ namespace HomeFinances.ViewModel.ViewModels
 
         private void LoadData()
         {
-            if(!Context.Accounts.Any())
+            if (!Context.Accounts.Any())
             {
                 SelectedAccountIndex = null;
                 Cash = "0";
@@ -65,7 +65,7 @@ namespace HomeFinances.ViewModel.ViewModels
         public void AdjustBalance(double newBalance)
         {
             if (!SelectedAccountIndex.HasValue) return;
-            if(Context.Accounts.ToList().Count > SelectedAccountIndex.Value)
+            if (Context.Accounts.ToList().Count > SelectedAccountIndex.Value)
             {
                 Context.Accounts.ElementAt(SelectedAccountIndex.Value).Balance = newBalance;
                 Context.SaveChanges();
