@@ -4,5 +4,15 @@ using System.Text;
 
 namespace HomeFinances.Model.Events
 {
-    public delegate void DataChangedEventHandler(object sender, EventArgs args);
+    public class DataChangedEventArgs
+    {
+        public string TableName { get; }
+
+        public DataChangedEventArgs(string tableName)
+        {
+            TableName = tableName;
+        }
+    }
+
+    public delegate void DataChangedEventHandler(object sender, DataChangedEventArgs args);
 }
