@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HomeFinances.Model.Model
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
 
         public event DataChangedEventHandler DataChanged;
@@ -45,7 +45,7 @@ namespace HomeFinances.Model.Model
                 .HasDiscriminator<string>("TransactionType");
             builder.Entity<Transaction>()
                 .HasOne(x => x.Category);
-                
+
             builder.Entity<Category>()
                 .ToTable("Categories");
         }

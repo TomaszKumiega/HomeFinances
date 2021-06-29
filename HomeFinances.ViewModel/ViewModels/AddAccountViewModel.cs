@@ -7,13 +7,13 @@ namespace HomeFinances.ViewModel.ViewModels
 {
     public class AddAccountViewModel
     {
-        private DatabaseContext Context { get; }
+        private IDatabaseContext Context { get; }
 
         public string Currency { get; set; }
         public string Name { get; set; }
         public double Balance { get; set; }
 
-        public AddAccountViewModel(DatabaseContext context)
+        public AddAccountViewModel(IDatabaseContext context)
         {
             Context = context;
         }

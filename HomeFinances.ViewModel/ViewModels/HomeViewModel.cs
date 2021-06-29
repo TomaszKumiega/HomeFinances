@@ -12,7 +12,7 @@ namespace HomeFinances.ViewModel.ViewModels
     {
 
         private int? selectedAccountIndex;
-        private DatabaseContext Context { get; }
+        private IDatabaseContext Context { get; }
         
         public string Cash { get; private set; }
         public List<string> AccountNames { get; private set; }
@@ -29,7 +29,7 @@ namespace HomeFinances.ViewModel.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public HomeViewModel(DatabaseContext context)
+        public HomeViewModel(IDatabaseContext context)
         {
             Context = context;
             Context.DataChanged += OnDataChanged;
