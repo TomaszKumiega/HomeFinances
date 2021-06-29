@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,17 +14,17 @@ namespace HomeFinances.Model.Model
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-
+        private IConfiguration Configuration { get;  }
         public event DataChangedEventHandler DataChanged;
 
-        public DatabaseContext()
+        public DatabaseContext(IConfiguration configuration)
         {
-
+            Configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=./Database/HomeFinances.db");
+        { 
+            optionsBuilder.UseSqlite($"Data Source={Configuration.DatabaseFilePath}");
         }
 
         public DbSet<Account> Accounts { get; set; }

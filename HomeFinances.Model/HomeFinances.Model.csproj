@@ -5,16 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Database\HomeFinances.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Database\HomeFinances.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.16">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
