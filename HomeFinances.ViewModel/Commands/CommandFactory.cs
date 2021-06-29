@@ -16,5 +16,10 @@ namespace HomeFinances.ViewModel.Commands
         {
             return new AddTransactionCommand(viewModel);
         }
+
+        public RemoveAccountCommand GetRemoveAccountCommand(IHomeViewModel viewModel)
+        {
+            return new RemoveAccountCommand(viewModel);
+        }
     }
 }

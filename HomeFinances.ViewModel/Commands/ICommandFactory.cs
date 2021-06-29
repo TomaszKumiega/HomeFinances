@@ -6,5 +6,6 @@ namespace HomeFinances.ViewModel.Commands
     {
         AddAccountCommand GetAddAccountCommand(IAddAccountViewModel viewModel);
         AddTransactionCommand GetAddTransactionCommand(IAddTransactionViewModel viewModel);
+        RemoveAccountCommand GetRemoveAccountCommand(IHomeViewModel viewModel);
     }
 }
