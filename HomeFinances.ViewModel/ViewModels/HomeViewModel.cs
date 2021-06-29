@@ -72,6 +72,7 @@ namespace HomeFinances.ViewModel.ViewModels
 
             RaisePropertyChanged("Cash");
             RaisePropertyChanged("Accounts");
+            RaisePropertyChanged("SelectedAccount");
         }
 
         private void OnSelectedAccountChanged()
@@ -97,6 +98,8 @@ namespace HomeFinances.ViewModel.ViewModels
 
             Context.Accounts.Remove(SelectedAccount);
             Context.SaveChanges();
+
+            LoadData();
         }
     }
 }
