@@ -3,9 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeFinances.ViewModel.ViewModels;assembly=HomeFinances.ViewModel" x:DataType="local:HomeViewModel"
              x:Class="HomeFinances.XamarinForms.Views.HomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Account" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Dziala"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+    
+            <Picker x:Name="AccountPicker"
+                    Grid.ColumnSpan="2"
+                    HorizontalTextAlignment="Center"
+                    Title="All Accounts"
+                    ItemsSource="{Binding Accounts}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedAccount}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

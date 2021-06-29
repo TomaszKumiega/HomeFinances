@@ -14,11 +14,18 @@ namespace HomeFinances.XamarinForms.Views
     public partial class HomePage : ContentPage
     {
         private IHomeViewModel ViewModel { get; }
+        private AddAccountPage AddAccountPage { get; }
 
-        public HomePage()
+        public HomePage(IHomeViewModel viewModel, AddAccountPage addAccountPage)
         {
             InitializeComponent();
-            BindingContext = DependencyService.Resolve<IHomeViewModel>();
+            BindingContext = ViewModel = viewModel;
+            AddAccountPage = addAccountPage;
+        }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(AddAccountPage);
         }
     }
 }
