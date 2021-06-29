@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 
 namespace HomeFinances.ViewModel.ViewModels
 {
@@ -8,6 +9,8 @@ namespace HomeFinances.ViewModel.ViewModels
         string Balance { get; set; }
         string Currency { get; set; }
         string Name { get; set; }
+
+        event PropertyChangedEventHandler PropertyChanged;
 
         void AddAccount();
     }

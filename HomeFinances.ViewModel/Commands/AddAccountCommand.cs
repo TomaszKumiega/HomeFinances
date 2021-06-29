@@ -1,6 +1,7 @@
 ﻿using HomeFinances.ViewModel.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 
@@ -14,6 +15,12 @@ namespace HomeFinances.ViewModel.Commands
         public AddAccountCommand(IAddAccountViewModel viewModel)
         {
             ViewModel = viewModel;
+            ViewModel.PropertyChanged += OnPropertyChanged;
+        }
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public bool CanExecute(object parameter)
