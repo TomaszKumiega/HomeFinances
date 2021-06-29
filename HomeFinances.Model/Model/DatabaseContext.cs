@@ -1,5 +1,4 @@
-﻿using HomeFinances.Model.Events;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -15,7 +14,6 @@ namespace HomeFinances.Model.Model
     public class DatabaseContext : DbContext, IDatabaseContext
     {
         private IConfiguration Configuration { get;  }
-        public event DataChangedEventHandler DataChanged;
 
         public DatabaseContext(IConfiguration configuration)
         {
@@ -49,18 +47,6 @@ namespace HomeFinances.Model.Model
 
             builder.Entity<Category>()
                 .ToTable("Categories");
-        }
-
-        public override int SaveChanges()
-        {
-            DataChanged?.Invoke(this, EventArgs.Empty);
-            return base.SaveChanges();
-        }
-
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-            DataChanged?.Invoke(this, EventArgs.Empty);
-            return base.SaveChangesAsync(true, cancellationToken);
         }
     }
 }
