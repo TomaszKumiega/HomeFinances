@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeFinances.Model.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeFinances.ViewModel.Tests", "HomeFinances.ViewModel.Tests\HomeFinances.ViewModel.Tests.csproj", "{F5FEF2D8-F83B-4FAB-A9CB-4FAF8CD3B455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinances.GUI", "HomeFinances.GUI\HomeFinances.GUI.csproj", "{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinances.XamarinForms.Android", "HomeFinances.XamarinForms\HomeFinances.XamarinForms.Android\HomeFinances.XamarinForms.Android.csproj", "{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinances.XamarinForms", "HomeFinances.XamarinForms\HomeFinances.XamarinForms\HomeFinances.XamarinForms.csproj", "{A67F4572-1C62-4792-9FD8-4713914382FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,16 @@ Global
 		{F5FEF2D8-F83B-4FAB-A9CB-4FAF8CD3B455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5FEF2D8-F83B-4FAB-A9CB-4FAF8CD3B455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5FEF2D8-F83B-4FAB-A9CB-4FAF8CD3B455}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5AFFA6BB-15E3-4A4E-8DA8-94FB21359FB7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A67F4572-1C62-4792-9FD8-4713914382FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67F4572-1C62-4792-9FD8-4713914382FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67F4572-1C62-4792-9FD8-4713914382FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67F4572-1C62-4792-9FD8-4713914382FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
