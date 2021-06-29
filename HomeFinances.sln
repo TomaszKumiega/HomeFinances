@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeFinances.ViewModel.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinances.XamarinForms.Android", "HomeFinances.XamarinForms\HomeFinances.XamarinForms.Android\HomeFinances.XamarinForms.Android.csproj", "{F2AAB76B-40C3-4E2B-A248-80CA8D27394F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinances.XamarinForms", "HomeFinances.XamarinForms\HomeFinances.XamarinForms\HomeFinances.XamarinForms.csproj", "{A67F4572-1C62-4792-9FD8-4713914382FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeFinances.XamarinForms", "HomeFinances.XamarinForms\HomeFinances.XamarinForms\HomeFinances.XamarinForms.csproj", "{A67F4572-1C62-4792-9FD8-4713914382FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
