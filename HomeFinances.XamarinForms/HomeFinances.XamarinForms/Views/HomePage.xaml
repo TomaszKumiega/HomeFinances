@@ -35,6 +35,10 @@
                    FontSize="Title"
                    Text="{Binding Cash}"/>
 
+            <Button x:Name="AdjustBalanceButton"
+                    Text="Adjust Balance"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
