@@ -75,6 +75,7 @@ namespace HomeFinances.ViewModel.ViewModels
             if (SelectedAccount == null) return;
 
             Cash = SelectedAccount.Balance.ToString() + " " + SelectedAccount.Currency;
+            RaisePropertyChanged("Cash");
         }
 
         public void AdjustBalance(double newBalance)
