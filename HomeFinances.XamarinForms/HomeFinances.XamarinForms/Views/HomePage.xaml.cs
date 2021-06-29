@@ -18,6 +18,7 @@ namespace HomeFinances.XamarinForms.Views
         public HomePage()
         {
             InitializeComponent();
+            BindingContext = DependencyService.Resolve<IHomeViewModel>();
         }
     }
 }
