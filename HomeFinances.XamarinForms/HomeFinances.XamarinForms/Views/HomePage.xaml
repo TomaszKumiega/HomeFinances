@@ -31,14 +31,16 @@
             <Label x:Name="BalanceLabel"
                    Grid.Row="1"
                    Grid.Column="0"
+                   Grid.ColumnSpan="2"
                    HorizontalOptions="CenterAndExpand"
                    FontSize="Title"
                    Text="{Binding Cash}"/>
 
             <Button x:Name="AdjustBalanceButton"
                     Text="Adjust Balance"
-                    Grid.Row="1"
-                    Grid.Column="1"/>
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Clicked=""/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
