@@ -46,7 +46,8 @@
                     Text="Remove Account"
                     Grid.Row="2"
                     Grid.Column="1"
-                    BackgroundColor="MediumVioletRed"/>
+                    BackgroundColor="MediumVioletRed"
+                    Command="{Binding RemoveAccountCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
