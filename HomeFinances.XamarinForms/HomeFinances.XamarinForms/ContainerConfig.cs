@@ -22,6 +22,8 @@ namespace HomeFinances.XamarinForms
             builder.RegisterType<RecordsViewModel>().As<IRecordsViewModel>();
             builder.RegisterType<AppShell>().AsSelf();
             builder.RegisterType<HomePage>().AsSelf();
+            builder.RegisterType<AddAccountPage>().AsSelf();
+            builder.RegisterType<Configuration>().As<IConfiguration>();
 
             return builder.Build();
         }
