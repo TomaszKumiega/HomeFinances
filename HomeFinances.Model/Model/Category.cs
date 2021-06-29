@@ -6,10 +6,10 @@ using System.Text;
 
 namespace HomeFinances.Model.Model
 { 
-    public enum CategoryType
+    public enum TransactionType
     {
-        IncomeCategory,
-        ExpenseCategory
+        Expense,
+        Income
     }
 
     public class Category
@@ -24,6 +24,6 @@ namespace HomeFinances.Model.Model
             get => Color.ToArgb();
             set => Color = Color.FromArgb(value);
         }
-        public CategoryType Type { get; set; }
+        public TransactionType Type { get; set; }
     }
 }
