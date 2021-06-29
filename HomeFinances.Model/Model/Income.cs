@@ -9,6 +9,21 @@ namespace HomeFinances.Model.Model
         private float _value;
         private Category _category;
 
+        public Income()
+        {
+
+        }
+
+        public Income(Guid id, Guid accountId, string desctription, Category category, DateTime dateTime, float value)
+        {
+            Id = id;
+            AccountId = accountId;
+            Description = desctription;
+            Category = category;
+            Date = dateTime;
+            Value = value;
+        }
+
         public override float Value
         {
             get => _value;
