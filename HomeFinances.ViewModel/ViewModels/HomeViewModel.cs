@@ -1,4 +1,6 @@
-﻿using HomeFinances.Model.Model;
+﻿using HomeFinances.ViewModel.Events;
+using HomeFinances.Model.Model;
+using HomeFinances.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace HomeFinances.ViewModel.ViewModels
 
         private Account selectedAccount;
         private IDatabaseContext Context { get; }
+        private DataChangedNotification DataChangedNotification { get; }
 
         public string Cash { get; private set; }
         public List<Account> Accounts { get; private set; }
@@ -28,10 +31,11 @@ namespace HomeFinances.ViewModel.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public HomeViewModel(IDatabaseContext context)
+        public HomeViewModel(IDatabaseContext context, DataChangedNotification dataChangedNotification)
         {
             Context = context;
-            Context.DataChanged += OnDataChanged;
+            DataChangedNotification = dataChangedNotification;
+            DataChangedNotification.DataChanged += OnDataChanged;
             LoadData();
         }
 
@@ -40,7 +44,7 @@ namespace HomeFinances.ViewModel.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private async void OnDataChanged(object sender, EventArgs args)
+        private async void OnDataChanged(object sender, DataChangedEventArgs args)
         {
             await Task.Run(() => LoadData());
         }
