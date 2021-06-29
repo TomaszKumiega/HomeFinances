@@ -11,5 +11,10 @@ namespace HomeFinances.ViewModel.Commands
         {
             return new AddAccountCommand(viewModel);
         }
+
+        public AddTransactionCommand GetAddTransactionCommand(IAddTransactionViewModel viewModel)
+        {
+            return new AddTransactionCommand(viewModel);
+        }
     }
 }

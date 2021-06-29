@@ -5,5 +5,6 @@ namespace HomeFinances.ViewModel.Commands
     public interface ICommandFactory
     {
         AddAccountCommand GetAddAccountCommand(IAddAccountViewModel viewModel);
+        AddTransactionCommand GetAddTransactionCommand(IAddTransactionViewModel viewModel);
     }
 }
