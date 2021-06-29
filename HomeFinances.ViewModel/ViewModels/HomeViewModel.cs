@@ -46,6 +46,8 @@ namespace HomeFinances.ViewModel.ViewModels
 
         private async void OnDataChanged(object sender, DataChangedEventArgs args)
         {
+            if (args.TableName != "Accounts") return;
+
             await Task.Run(() => LoadData());
         }
 
