@@ -1,4 +1,5 @@
-﻿using HomeFinances.Model.Model;
+﻿using Autofac;
+using HomeFinances.Model.Model;
 using HomeFinances.ViewModel.Commands;
 using HomeFinances.ViewModel.ViewModels;
 using HomeFinances.XamarinForms.Views;
@@ -14,18 +15,8 @@ namespace HomeFinances.XamarinForms
         public App()
         {
             InitializeComponent();
-            RegisterTypes();
-            MainPage = new AppShell();
-        }
-
-        private void RegisterTypes()
-        {
-            DependencyService.Register<IDatabaseContext, DatabaseContext>();
-            DependencyService.Register<ICommandFactory, CommandFactory>();
-            DependencyService.Register<IHomeViewModel, HomeViewModel>();
-            DependencyService.Register<IAddAccountViewModel, AddAccountViewModel>();
-            DependencyService.Register<IAddTransactionViewModel, AddTransactionViewModel>();
-            DependencyService.Register<IRecordsViewModel, RecordsViewModel>();
+            var container = ContainerConfig.Configure();
+            MainPage = container.Resolve<AppShell>();
         }
 
         protected override void OnStart()
