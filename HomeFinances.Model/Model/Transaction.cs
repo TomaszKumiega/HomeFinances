@@ -12,5 +12,6 @@ namespace HomeFinances.Model.Model
         public virtual Category Category { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual float Value { get; set; }
+        public string Discriminator { get; private set; }
     }
 }
