@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeFinances.ViewModel.ViewModels;assembly=HomeFinances.ViewModel" x:DataType="local:AddAccountViewModel"
-             x:Class="HomeFinances.XamarinForms.Views.AddAccountPage">
+             x:Class="HomeFinances.XamarinForms.Views.AddAccountPage"
+             Title="Add Account">
+    
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Name"
