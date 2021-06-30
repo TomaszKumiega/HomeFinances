@@ -1,12 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeFinances.ViewModel.ViewModels;assembly=HomeFinances.ViewModel" x:DataType="local:AddTransactionViewModel"
              x:Class="HomeFinances.XamarinForms.Views.AddTransactionPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Account"/>
+            <Picker x:Name="AccountPicker"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="CenterAndExpand"
+                    Title="All Accounts"
+                    ItemsSource="{Binding Accounts}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedAccount}"/>
+            <Label Text="Category"/>
+            <Picker x:Name="CategoryPicker"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="CenterAndExpand"
+                    Title="All Accounts"
+                    ItemsSource="{Binding Categories}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedCategory}"/>
+            <Button x:Name="AddCategoryButton"
+                    Text="Add Category"
+                    HorizontalOptions="Center"
+                    Clicked="AddCategoryButton_Clicked"/>
+            <Label Text="Date"/>
+            <DatePicker x:Name="DatePicker"
+                        HorizontalOptions="CenterAndExpand"
+                        Date="{Binding Date}"/>
+            <Button x:Name="AddTransactionButton"
+                    Text="Add"
+                    Margin="0,10,0,0"
+                    Command="{Binding AddTransactionCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

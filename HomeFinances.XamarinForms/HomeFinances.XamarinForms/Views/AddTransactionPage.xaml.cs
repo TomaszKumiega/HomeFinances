@@ -18,5 +18,10 @@ namespace HomeFinances.XamarinForms.Views
             InitializeComponent();
             BindingContext = viewModel;
         }
+
+        private void AddCategoryButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
