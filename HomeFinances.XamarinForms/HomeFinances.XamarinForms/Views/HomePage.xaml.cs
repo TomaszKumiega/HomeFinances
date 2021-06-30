@@ -15,12 +15,14 @@ namespace HomeFinances.XamarinForms.Views
     {
         private IHomeViewModel ViewModel { get; }
         private AddAccountPage AddAccountPage { get; }
+        private AddTransactionPage AddTransactionPage { get; }
 
-        public HomePage(IHomeViewModel viewModel, AddAccountPage addAccountPage)
+        public HomePage(IHomeViewModel viewModel, AddAccountPage addAccountPage, AddTransactionPage addTransactionPage)
         {
             InitializeComponent();
             BindingContext = ViewModel = viewModel;
             AddAccountPage = addAccountPage;
+            AddTransactionPage = addTransactionPage;
         }
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -31,6 +33,11 @@ namespace HomeFinances.XamarinForms.Views
         private void AdjustBalanceButton_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(AddTransactionPage);
         }
     }
 }
