@@ -101,8 +101,8 @@ namespace HomeFinances.ViewModel.ViewModels
                 transactionType = TransactionType.Expense;
             }
 
-            RaisePropertyChanged("AccountNames");
-            RaisePropertyChanged("SelectedAccountIndex");
+            RaisePropertyChanged("Accounts");
+            RaisePropertyChanged("SelectedAccount");
             RaisePropertyChanged("Categories");
         }
 
