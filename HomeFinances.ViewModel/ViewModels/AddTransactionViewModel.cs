@@ -1,5 +1,7 @@
 ﻿using HomeFinances.Model.Model;
 using HomeFinances.ViewModel.Commands;
+using HomeFinances.ViewModel.Events;
+using HomeFinances.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace HomeFinances.ViewModel.ViewModels
     {
         private TransactionType transactionType;
         private IDatabaseContext Context { get; }
+        private DataChangedNotification DataChangedNotification { get; } 
 
         public List<Account> Accounts { get; private set; }
         public Account SelectedAccount { get; set; }
@@ -36,9 +39,11 @@ namespace HomeFinances.ViewModel.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public AddTransactionViewModel(IDatabaseContext context, ICommandFactory commandFactory)
+        public AddTransactionViewModel(IDatabaseContext context, ICommandFactory commandFactory, DataChangedNotification dataChangedNotification)
         {
             Context = context;
+            DataChangedNotification = dataChangedNotification;
+            DataChangedNotification.DataChanged += OnDataChanged;
             AddTransactionCommand = commandFactory.GetAddTransactionCommand(this);
             Date = DateTime.Now;
             LoadData();
@@ -47,6 +52,11 @@ namespace HomeFinances.ViewModel.ViewModels
         private void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async void OnDataChanged(object sender, DataChangedEventArgs args)
+        {
+            await Task.Run(() => LoadData());
         }
 
         private void OnTransactionTypeChanged()
@@ -152,6 +162,7 @@ namespace HomeFinances.ViewModel.ViewModels
             {
                 account.Transactions.Add(transaction);
                 Context.SaveChanges();
+                DataChangedNotification.RaiseDataChanged("Transactions");
             }
         }
     }
