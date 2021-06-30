@@ -40,6 +40,7 @@ namespace HomeFinances.ViewModel.ViewModels
         {
             Context = context;
             AddTransactionCommand = commandFactory.GetAddTransactionCommand(this);
+            Date = DateTime.Now;
             LoadData();
         }
 
