@@ -25,5 +25,19 @@ namespace HomeFinances.Model.Model
             set => Color = Color.FromArgb(value);
         }
         public TransactionType Type { get; set; }
+
+        public Category()
+        {
+
+        }
+
+        public Category(Guid id, string name, string description, Color color, TransactionType transactionType)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Color = color;
+            Type = transactionType;
+        }
     }
 }
