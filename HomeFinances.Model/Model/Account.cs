@@ -8,7 +8,7 @@ namespace HomeFinances.Model.Model
     {
         public Account()
         {
-
+            Transactions = new List<Transaction>();
         }
 
         public Account(Guid id, string currency, string name, double balance)
