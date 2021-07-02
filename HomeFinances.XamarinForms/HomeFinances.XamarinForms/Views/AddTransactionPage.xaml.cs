@@ -25,5 +25,10 @@ namespace HomeFinances.XamarinForms.Views
         {
             await Navigation.PushAsync(AddCategoryPage);
         }
+
+        private async void AddTransactionButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

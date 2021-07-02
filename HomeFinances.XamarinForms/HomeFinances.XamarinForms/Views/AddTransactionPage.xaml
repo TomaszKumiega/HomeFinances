@@ -58,7 +58,8 @@
             <Button x:Name="AddTransactionButton"
                     Text="Add"
                     Margin="0,20,0,0"
-                    Command="{Binding AddTransactionCommand}"/>
+                    Command="{Binding AddTransactionCommand}"
+                    Clicked="AddTransactionButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
