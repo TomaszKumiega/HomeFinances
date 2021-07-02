@@ -19,8 +19,7 @@ namespace HomeFinances.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            if (ViewModel.IsCategoryValid() && ViewModel.IsDateValid() && ViewModel.IsValueValid()) return true;
-            else return false;
+            return true;
         }
 
         public void Execute(object parameter)
