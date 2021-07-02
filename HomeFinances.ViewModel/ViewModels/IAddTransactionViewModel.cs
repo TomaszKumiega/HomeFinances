@@ -15,7 +15,7 @@ namespace HomeFinances.ViewModel.ViewModels
         string Description { get; set; }
         Account SelectedAccount { get; set; }
         Category SelectedCategory { get; set; }
-        TransactionType TransactionType { get; set; }
+        int Type { get; set; }
         string Value { get; set; }
 
         event PropertyChangedEventHandler PropertyChanged;

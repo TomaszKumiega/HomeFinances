@@ -23,7 +23,7 @@
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="CenterAndExpand"
                     Title="Transaction type"
-                    SelectedIndex="{Binding TransactionType}">
+                    SelectedIndex="{Binding Type}">
                 <Picker.Items>
                     <x:String>Expense</x:String>
                     <x:String>Income</x:String>

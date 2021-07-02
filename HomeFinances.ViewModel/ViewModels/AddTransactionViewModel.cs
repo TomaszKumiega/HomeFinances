@@ -27,12 +27,12 @@ namespace HomeFinances.ViewModel.ViewModels
         public string Value { get; set; }
         public ICommand AddTransactionCommand { get; }
 
-        public TransactionType TransactionType
+        public int Type
         {
-            get => transactionType;
+            get => (int)transactionType;
             set
             {
-                transactionType = value;
+                transactionType = (TransactionType) value;
                 OnTransactionTypeChanged();
             }
         }
@@ -61,11 +61,11 @@ namespace HomeFinances.ViewModel.ViewModels
 
         private void OnTransactionTypeChanged()
         {
-            if (TransactionType == TransactionType.Expense)
+            if (Type == (int)TransactionType.Expense)
             {
                 Categories = Context.Categories.Where(x => x.Type == TransactionType.Expense).ToList();
             }
-            else if (TransactionType == TransactionType.Income)
+            else if (Type == (int)TransactionType.Income)
             {
                 Categories = Context.Categories.Where(x => x.Type == TransactionType.Income).ToList();
             }
@@ -109,7 +109,7 @@ namespace HomeFinances.ViewModel.ViewModels
         public bool IsCategoryValid()
         {
             if (SelectedCategory == null) return false;
-            if (SelectedCategory.Type == TransactionType) return true;
+            if (SelectedCategory.Type == (TransactionType)Type) return true;
             return false;
         }
 
@@ -127,7 +127,7 @@ namespace HomeFinances.ViewModel.ViewModels
 
             if (float.TryParse(Value, out value))
             {
-                if (TransactionType == TransactionType.Expense)
+                if (Type == (int)TransactionType.Expense)
                 {
                     if (value >= 0) return false;
                     else return true;
@@ -149,11 +149,11 @@ namespace HomeFinances.ViewModel.ViewModels
             var account = Context.Accounts.Find(SelectedAccount.Id);
             Transaction transaction = null;
 
-            if (TransactionType == TransactionType.Expense)
+            if (Type == (int)(TransactionType.Expense))
             {
                 transaction = new Expense(Guid.NewGuid(), SelectedAccount.Id, Description, SelectedCategory, Date, float.Parse(Value));
             }
-            else if (TransactionType == TransactionType.Income)
+            else if (Type == (int)TransactionType.Income)
             {
                 transaction = new Income(Guid.NewGuid(), SelectedAccount.Id, Description, SelectedCategory, Date, float.Parse(Value));
             }
@@ -161,6 +161,7 @@ namespace HomeFinances.ViewModel.ViewModels
             if (transaction != null)
             {
                 account.Transactions.Add(transaction);
+                (Context as DatabaseContext).Entry(transaction).State = Microsoft.EntityFrameworkCore.EntityState.Added;
                 Context.SaveChanges();
                 DataChangedNotification.RaiseDataChanged("Transactions");
             }
