@@ -13,15 +13,17 @@ namespace HomeFinances.XamarinForms.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddTransactionPage : ContentPage
     {
-        public AddTransactionPage(IAddTransactionViewModel viewModel)
+        private AddCategoryPage AddCategoryPage { get; set; }
+        public AddTransactionPage(IAddTransactionViewModel viewModel, AddCategoryPage addCategoryPage)
         {
+            AddCategoryPage = addCategoryPage;
             InitializeComponent();
             BindingContext = viewModel;
         }
 
-        private void AddCategoryButton_Clicked(object sender, EventArgs e)
+        private async void AddCategoryButton_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(AddCategoryPage);
         }
     }
 }
