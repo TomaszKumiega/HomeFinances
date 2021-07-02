@@ -28,6 +28,7 @@ namespace HomeFinances.XamarinForms
             builder.RegisterType<Configuration>().As<IConfiguration>();
             builder.RegisterType<DataChangedNotification>().AsSelf().SingleInstance();
             builder.RegisterType<AddTransactionPage>().AsSelf();
+            builder.RegisterType<AddCategoryPage>().AsSelf();
 
             return builder.Build();
         }
