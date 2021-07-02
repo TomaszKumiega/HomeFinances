@@ -12,10 +12,5 @@ namespace HomeFinances.XamarinForms
             InitializeComponent();
             HomeShellContent.Content = homePage;
         }
-
-        private async void OnMenuItemClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("//HomePage");
-        }
     }
 }
