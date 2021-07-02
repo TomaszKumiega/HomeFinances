@@ -18,6 +18,7 @@ namespace HomeFinances.XamarinForms
             builder.RegisterType<DatabaseContext>().As<IDatabaseContext>();
             builder.RegisterType<CommandFactory>().As<ICommandFactory>();
             builder.RegisterType<HomeViewModel>().As<IHomeViewModel>();
+            builder.RegisterType<AddCategoryViewModel>().As<IAddCategoryViewModel>();
             builder.RegisterType<AddAccountViewModel>().As<IAddAccountViewModel>();
             builder.RegisterType<AddTransactionViewModel>().As<IAddTransactionViewModel>();
             builder.RegisterType<RecordsViewModel>().As<IRecordsViewModel>();
