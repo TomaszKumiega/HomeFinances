@@ -7,11 +7,12 @@ namespace HomeFinances.XamarinForms
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
-        public AppShell(HomePage homePage, RecordsPage recordsPage)
+        public AppShell(HomePage homePage, RecordsPage recordsPage, StatisticsPage statisticsPage)
         {
             InitializeComponent();
             HomeShellContent.Content = homePage;
             RecordsShellContent.Content = recordsPage;
+            StatisticsShellContent.Content = statisticsPage;
         }
     }
 }

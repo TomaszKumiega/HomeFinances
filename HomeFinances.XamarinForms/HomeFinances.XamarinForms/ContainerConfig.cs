@@ -30,6 +30,7 @@ namespace HomeFinances.XamarinForms
             builder.RegisterType<AddTransactionPage>().AsSelf();
             builder.RegisterType<AddCategoryPage>().AsSelf();
             builder.RegisterType<RecordsPage>().AsSelf();
+            builder.RegisterType<StatisticsPage>().AsSelf();
 
             return builder.Build();
         }
