@@ -16,16 +16,57 @@ namespace HomeFinances.ViewModel.ViewModels
     {
         private TransactionType transactionType;
         private IDatabaseContext Context { get; }
-        private DataChangedNotification DataChangedNotification { get; } 
+        private DataChangedNotification DataChangedNotification { get; }
+        private Account selectedAccount;
+        private string _value;
+        private DateTime date;
+        private Category selectedCategory;
 
+        public ICommand AddTransactionCommand { get; }
         public List<Account> Accounts { get; private set; }
-        public Account SelectedAccount { get; set; }
         public string Description { get; set; }
         public List<Category> Categories { get; set; }
-        public Category SelectedCategory { get; set; }
-        public DateTime Date { get; set; }
-        public string Value { get; set; }
-        public ICommand AddTransactionCommand { get; }
+        
+        public Category SelectedCategory 
+        { 
+            get => selectedCategory; 
+            set
+            {
+                selectedCategory = value;
+                RaisePropertyChanged("SelectedCategory");
+            }
+        }
+        
+        public DateTime Date 
+        {
+            get => date;
+            set
+            {
+                date = value;
+                RaisePropertyChanged("Date");
+            }
+        }
+
+        public Account SelectedAccount 
+        {
+            get => selectedAccount; 
+            set
+            {
+                selectedAccount = value;
+                RaisePropertyChanged("SelectedAccount");
+            }
+        }
+
+        public string Value 
+        { 
+            get => _value; 
+            set
+            {
+                _value = value;
+                RaisePropertyChanged("Value");
+            }
+        }
+
 
         public int Type
         {
