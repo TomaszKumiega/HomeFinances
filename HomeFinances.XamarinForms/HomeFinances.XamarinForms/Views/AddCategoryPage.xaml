@@ -1,12 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeFinances.XamarinForms.Views.AddCategoryPage">
+             x:Class="HomeFinances.XamarinForms.Views.AddCategoryPage"
+             xmlns:local="clr-namespace:HomeFinances.ViewModel.ViewModels;assembly=HomeFinances.ViewModel" x:DataType="local:AddCategoryViewModel">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="NameLabel"
+                   Text="Name"
+                   FontSize="Large"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding Name}"
+                   FontSize="Large"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="1"/>
+            <Label Text="Description"
+                   FontSize="Large"
+                   HorizontalOptions="CenterAndExpand"
+                   Grid.Row="2"/>
+            <Entry Text="{Binding Description}"
+                   FontSize="Large"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="3"/> 
+            <Label Text="Category type"
+                   FontSize="Large"
+                   HorizontalOptions="CenterAndExpand"
+                   Grid.Row="4"/>
+            <Picker Title="Type"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    SelectedIndex="{Binding TransactionType}"
+                    Grid.Row="5">
+                <Picker.Items>
+                    <x:String>Expense category</x:String>
+                    <x:String>Income category</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Add"
+                    Command="{Binding AddCategoryCommand}"
+                    Clicked="Button_Clicked"
+                    Grid.Row="6"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
